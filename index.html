@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chiyoung Kim</title>
+<meta name="description" content="Chiyoung Kim — M.S. student at Chung-Ang University and visiting scholar at Carnegie Mellon University. Research on compressing vision-language-action models for on-device robot manipulation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F8F6;
+    --ink: #14181F;
+    --muted: #5B6470;
+    --rule: #D9DDE2;
+    --accent: #2247D6;
+    --accent-soft: #E7ECFB;
+    --max: 880px;
+    --label-w: 168px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0F1217;
+      --ink: #E6E9EE;
+      --muted: #98A1AD;
+      --rule: #262C35;
+      --accent: #7C9BFF;
+      --accent-soft: #1A2440;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0F1217;
+    --ink: #E6E9EE;
+    --muted: #98A1AD;
+    --rule: #262C35;
+    --accent: #7C9BFF;
+    --accent-soft: #1A2440;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    font-feature-settings: "kern", "liga";
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 0.15em; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  img { max-width: 100%; display: block; }
+  p { margin: 0 0 1em; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 600; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header { padding: 56px 0 24px; }
+  .nav { display: flex; flex-wrap: wrap; gap: 18px 24px; font-size: 15px; color: var(--muted); }
+  .nav a { color: inherit; }
+  .nav a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1fr 176px; gap: 40px; align-items: start; padding: 32px 0 56px; }
+  .hero h1 { font-size: 22px; font-weight: 500; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .hero .role { color: var(--muted); font-size: 16px; margin: 0 0 28px; }
+  .hero .statement {
+    font-size: clamp(28px, 4.4vw, 40px);
+    font-weight: 300;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin: 0 0 28px;
+    max-width: 22ch;
+  }
+  .hero .bio { max-width: 60ch; color: var(--ink); }
+  .portrait { position: relative; width: 176px; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 4px; background: var(--accent-soft); }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .portrait .initials {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    font-size: 40px; font-weight: 300; color: var(--accent); letter-spacing: 0.02em;
+  }
+  .portrait img[hidden] { display: none; }
+  .portrait img:not([hidden]) + .initials { display: none; }
+
+  /* Sections */
+  main { padding-bottom: 72px; }
+  section { display: grid; grid-template-columns: var(--label-w) 1fr; gap: 12px 32px; padding: 32px 0; border-top: 1px solid var(--rule); }
+  section h2 { font-size: 15px; font-weight: 500; color: var(--muted); margin: 4px 0 0; line-height: 1.5; }
+  .content { min-width: 0; }
+
+  /* News */
+  .news { list-style: none; margin: 0; padding: 0; }
+  .news li { display: grid; grid-template-columns: 84px 1fr; gap: 16px; padding: 6px 0; }
+  .news time { color: var(--muted); font-size: 15px; }
+
+  /* Publications */
+  .pub { padding: 0 0 26px; }
+  .pub:last-child { padding-bottom: 0; }
+  .pub .title { font-weight: 500; margin: 0 0 4px; }
+  .pub .authors { color: var(--muted); font-size: 15.5px; margin: 0 0 4px; }
+  .pub .authors b { font-weight: 500; color: var(--ink); }
+  .pub .venue { font-size: 15px; color: var(--muted); margin: 0 0 8px; }
+  .pub .links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; }
+  .pub .summary { margin: 8px 0 0; color: var(--ink); max-width: 64ch; }
+
+  /* Experience / Education rows */
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; padding: 10px 0; }
+  .row + .row { border-top: 1px solid var(--rule); }
+  .row .where { font-weight: 500; }
+  .row .what { color: var(--muted); font-size: 15.5px; }
+  .row .when { color: var(--muted); font-size: 15px; white-space: nowrap; text-align: right; }
+  .row .note { grid-column: 1 / -1; font-size: 15.5px; margin-top: 4px; max-width: 64ch; }
+
+  /* Skills */
+  .skills { margin: 0; }
+  .skills dt { font-weight: 500; margin-top: 10px; }
+  .skills dt:first-child { margin-top: 0; }
+  .skills dd { margin: 0; color: var(--muted); }
+
+  /* Awards */
+  .awards { list-style: none; margin: 0; padding: 0; }
+  .awards li { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 6px 0; }
+  .awards span:last-child { color: var(--muted); font-size: 15px; white-space: nowrap; }
+
+  footer { border-top: 1px solid var(--rule); padding: 28px 0 56px; color: var(--muted); font-size: 15px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    header { padding-top: 36px; }
+    .hero { grid-template-columns: 1fr; gap: 28px; padding-bottom: 40px; }
+    .portrait { order: -1; width: 128px; }
+    section { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; }
+    .row { grid-template-columns: 1fr; }
+    .row .when { text-align: left; white-space: normal; }
+    .awards li { grid-template-columns: 1fr; gap: 2px; }
+    .news li { grid-template-columns: 1fr; gap: 0; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: color 120ms ease; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="mailto:chiyounk@andrew.cmu.edu">Email</a>
+      <a href="https://www.linkedin.com/in/chiyoung-kim-0936242b1/">LinkedIn</a>
+      <a href="https://github.com/YOUR_GITHUB_USERNAME">GitHub</a>
+      <a href="CV.pdf">CV</a>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <h1>Chiyoung Kim</h1>
+        <p class="role">M.S. student, Chung-Ang University<br>Visiting scholar, Carnegie Mellon University (S3D)</p>
+        <p class="statement">I make vision-language-action models small enough to run on the robot.</p>
+        <div class="bio">
+          <p>I work on compressing and hardening VLA policies for real manipulators: structured pruning with offline hidden-state distillation, generative domain randomization of recorded demonstrations, and sub-billion-parameter VLAs trained with chain-of-thought supervision. Most of this ends up running on an AgileX PiPER arm with an on-board Jetson Thor.</p>
+          <p>I am advised by <a href="https://scholar.google.com/">Prof. Minhyeok Lee</a> at Chung-Ang University and am currently in Pittsburgh as a visiting scholar in CMU's Software and Societal Systems Department.</p>
+        </div>
+      </div>
+      <div class="portrait">
+        <!-- Replace photo.jpg with your own file. If it is missing, the initials below are shown instead. -->
+        <img src="photo.jpg" alt="Portrait of Chiyoung Kim" onerror="this.hidden=true">
+        <div class="initials" aria-hidden="true">CK</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="news">
+    <h2>News</h2>
+    <div class="content">
+      <ul class="news">
+        <li><time datetime="2026-09">Sep 2026</time><span>Two preprints on arXiv: offline recovery of pruned VLAs and ReShoot. Both are under review at ICRA 2027.</span></li>
+        <li><time datetime="2026-08">Aug 2026</time><span>Started as a visiting scholar at Carnegie Mellon University (S3D).</span></li>
+        <li><time datetime="2026-07">Jul 2026</time><span>CoTinyVLA is on arXiv, with code released.</span></li>
+        <li><time datetime="2026-03">Mar 2026</time><span>Began the M.S. program in Intelligent Semiconductor Engineering at Chung-Ang University.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <div class="content">
+      <p>The language backbone of a VLA model is what makes it capable and what keeps it off the robot. My work asks how much of that backbone can be removed, how the rest can be recovered without a simulator in the loop, and how the resulting policy holds up under the visual and kinematic shifts a real deployment brings. I measure everything twice: on LIBERO and LIBERO-Plus in simulation, and on a physical arm with its own on-board compute.</p>
+      <p>Current threads: offline distillation for compressed VLAs, video-diffusion re-rendering of recorded demonstrations, and reasoning supervision for sub-billion-parameter action models.</p>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <div class="content">
+
+      <article class="pub">
+        <p class="title"><a href="https://arxiv.org/abs/2609.19579">Recovering Aggressively Pruned Vision-Language-Action Models with Offline Hidden-State Distillation</a></p>
+        <p class="authors"><b>Chiyoung Kim</b>, Sanghyuk Roy Choi, Minhyeok Lee</p>
+        <p class="venue">arXiv 2609.19579, 2026. Under review at ICRA 2027.</p>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2609.19579">arXiv</a>
+          <a href="https://arxiv.org/pdf/2609.19579">PDF</a>
+        </div>
+        <p class="summary">Width pruning that keeps the residual stream intact lets a pruned VLA match its teacher's hidden states directly. A 63%-pruned OpenVLA-OFT recovers from 0.8% to 89.7% on LIBERO-Long in about 8 GPU-hours, and the distilled student runs 2.23× faster on a Jetson Thor with 62% less memory.</p>
+      </article>
+
+      <article class="pub">
+        <p class="title"><a href="https://arxiv.org/abs/2609.19661">ReShoot: Generative Visual Domain Randomization of Recorded Robot Demonstrations for Visuomotor Policy Learning</a></p>
+        <p class="authors"><b>Chiyoung Kim</b>*, Min Sung Choi*, Jinho Ju, Chanhoe Gu, Donghwan Hwang, Wonseok Choi, Woongsun Jeon, Minhyeok Lee <span style="font-size:14px">(*equal contribution)</span></p>
+        <p class="venue">arXiv 2609.19661, 2026. Under review at ICRA 2027.</p>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2609.19661">arXiv</a>
+          <a href="https://arxiv.org/pdf/2609.19661">PDF</a>
+        </div>
+        <p class="summary">An edge-conditioned video diffusion model re-renders recorded demonstrations under new appearances while the recorded actions are reused unchanged. On two physical arms, recolored-object success rises from 0% to 42.9% and 47.5% without collecting a single new demonstration.</p>
+      </article>
+
+      <article class="pub">
+        <p class="title"><a href="https://arxiv.org/abs/2607.25487">CoTinyVLA: Chain-of-Thought Distillation for a Sub-Billion-Parameter Vision-Language-Action Model</a></p>
+        <p class="authors">Minhyeok Lee, <b>Chiyoung Kim</b>, Chanhoe Gu, Seongrok Kim, Sanghyuk Roy Choi, Donghwan Hwang, Donghun Ryu, Seokhyun Kim</p>
+        <p class="venue">arXiv 2607.25487, 2026.</p>
+        <div class="links">
+          <a href="https://arxiv.org/abs/2607.25487">arXiv</a>
+          <a href="https://arxiv.org/pdf/2607.25487">PDF</a>
+          <a href="https://github.com/BrainJellyPie/CoTinyVLA">Code</a>
+        </div>
+        <p class="summary">A 0.9B-parameter VLA on a Qwen3.5-0.8B backbone, supervised with hierarchical chain-of-thought from a 35B teacher, leads the strongest 7B baselines on all four LIBERO-Plus suites within a 2.25 GiB inference budget.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="content">
+      <div class="row">
+        <span class="where">Carnegie Mellon University</span>
+        <span class="when">Aug 2026 – present</span>
+        <span class="what">Visiting Scholar, Software and Societal Systems Department (S3D)</span>
+      </div>
+      <div class="row">
+        <span class="where">Chung-Ang University</span>
+        <span class="when">Mar 2026 – present</span>
+        <span class="what">Graduate Research Assistant, advised by Prof. Minhyeok Lee</span>
+        <p class="note">Structured pruning and offline recovery of VLAs; teleoperation data collection and on-device deployment on an AgileX PiPER arm with Jetson Thor; generative augmentation of recorded demonstrations.</p>
+      </div>
+      <div class="row">
+        <span class="where">Chung-Ang University</span>
+        <span class="when">Spring 2026</span>
+        <span class="what">Teaching Assistant, Embedded Systems Design Lab (Raspberry Pi 5)</span>
+        <p class="note">Ran weekly lab sessions for 23 students, maintained the course lab manual, and wrote and graded the final exam and term-project evaluation.</p>
+      </div>
+      <div class="row">
+        <span class="where">Kookmin University Table Tennis Club</span>
+        <span class="when">Fall 2019</span>
+        <span class="what">President</span>
+        <p class="note">Organized twice-weekly training and led the club to first place in lower-division doubles at an eight-university tournament; later runner-up at the 2025 national collegiate tournament.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="content">
+      <div class="row">
+        <span class="where">Chung-Ang University</span>
+        <span class="when">2026 – 2028 (expected)</span>
+        <span class="what">M.S. in Intelligent Semiconductor Engineering. GPA 4.33 / 4.5</span>
+      </div>
+      <div class="row">
+        <span class="where">Kookmin University</span>
+        <span class="when">2019 – 2026</span>
+        <span class="what">B.S. in Electrical Engineering. GPA 3.85 / 4.5, Dean's List. Includes mandatory military service, Apr 2021 – Jan 2023.</span>
+      </div>
+      <div class="row">
+        <span class="where">Tecnológico de Monterrey</span>
+        <span class="when">2023 – 2024</span>
+        <span class="what">Exchange student, Monterrey, Mexico</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="content">
+      <dl class="skills">
+        <dt>Programming and tools</dt>
+        <dd>Python, PyTorch, Linux</dd>
+        <dt>Vision-language-action models</dt>
+        <dd>OpenVLA, OpenVLA-OFT, CogACT, imitation learning, LoRA fine-tuning, structured pruning, hidden-state distillation</dd>
+        <dt>Robot systems and deployment</dt>
+        <dd>AgileX PiPER manipulator, teleoperation, demonstration data collection, NVIDIA Jetson AGX Thor, on-device inference</dd>
+        <dt>Simulation and benchmarking</dt>
+        <dd>LIBERO, LIBERO-Plus, SimplerEnv, MuJoCo</dd>
+        <dt>Languages</dt>
+        <dd>Korean (native), English (fluent), Spanish (intermediate)</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h2>Awards</h2>
+    <div class="content">
+      <ul class="awards">
+        <li><span>Dean's List, Kookmin University</span><span>Fall 2025</span></li>
+        <li><span>Runner-up, lower-division doubles, National Collegiate Table Tennis Tournament</span><span>2025</span></li>
+        <li><span>English Proficiency Scholarship, Kookmin University (four semesters)</span><span>2020 – 2025</span></li>
+        <li><span>Faculty Assistantship Scholarship, Kookmin University</span><span>Fall 2024</span></li>
+        <li><span>Runner-up, lower-division doubles, 8-University Table Tennis Tournament</span><span>2020</span></li>
+        <li><span>1st place, lower-division doubles, 8-University Table Tennis Tournament</span><span>Fall 2019</span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="mailto:chiyounk@andrew.cmu.edu">chiyounk@andrew.cmu.edu</a></span>
+    <span>Pittsburgh, PA</span>
+  </div>
+</footer>
+
+</body>
+</html>
