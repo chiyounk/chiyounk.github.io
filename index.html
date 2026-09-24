@@ -165,10 +165,10 @@
       <div>
         <h1>Chiyoung Kim</h1>
         <p class="role">M.S. student, Chung-Ang University<br>Visiting scholar, Carnegie Mellon University (S3D)</p>
-        <p class="statement">I make vision-language-action models small enough to run on the robot.</p>
+        <p class="statement">I make learned robot policies work on real hardware. Next: humanoids.</p>
         <div class="bio">
-          <p>I work on compressing and hardening VLA policies for real manipulators: structured pruning with offline hidden-state distillation, generative domain randomization of recorded demonstrations, and sub-billion-parameter VLAs trained with chain-of-thought supervision. Most of this ends up running on an AgileX PiPER arm with an on-board Jetson Thor.</p>
-          <p>I am a member of GAIL at Chung-Ang University, advised by Prof. Minhyeok Lee, and am currently in Pittsburgh as a visiting scholar in CMU's Software and Societal Systems Department, fully funded by an IITP–Sogang University research visit program.</p>
+          <p>I work on getting learned manipulation policies to run on physical robots: compressing vision-language-action models for embedded compute, re-rendering recorded demonstrations so policies survive visual change, and training sub-billion-parameter action models with reasoning supervision. Most of this ends up on an AgileX PiPER arm with an on-board Jetson Thor.</p>
+          <p>I am a member of GAIL at Chung-Ang University, advised by Prof. Minhyeok Lee, and am currently in Pittsburgh as a visiting scholar in CMU's Software and Societal Systems Department, fully funded by an IITP–Sogang University research visit program. For my next work I want to move to humanoid robots.</p>
         </div>
       </div>
       <div class="portrait">
@@ -197,8 +197,8 @@
   <section id="research">
     <h2>Research</h2>
     <div class="content">
-      <p>The language backbone of a VLA model is what makes it capable and what keeps it off the robot. My work asks how much of that backbone can be removed, how the rest can be recovered without a simulator in the loop, and how the resulting policy holds up under the visual and kinematic shifts a real deployment brings. I measure everything twice: on LIBERO and LIBERO-Plus in simulation, and on a physical arm with its own on-board compute.</p>
-      <p>Current threads: offline distillation for compressed VLAs, video-diffusion re-rendering of recorded demonstrations, and reasoning supervision for sub-billion-parameter action models.</p>
+      <p>A learned policy that does well in simulation then meets a real robot with limited compute, a small set of demonstrations, and a scene that never quite matches the training data. My work so far treats these as one problem with three faces: compressing VLA models and recovering them offline, generating appearance variation for recorded demonstrations, and distilling reasoning into small action models. I measure everything twice, on LIBERO and LIBERO-Plus in simulation and on a physical arm with its own on-board compute.</p>
+      <p>Going forward, I want to work on humanoid robots. I am open on the specific problem within that space and would like to spend the next few years there.</p>
     </div>
   </section>
 
